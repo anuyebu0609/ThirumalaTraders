@@ -1,0 +1,8 @@
+export const JindalStar="https://ik.imagekit.io/opzxy97kk/ThirumalaTraders/ChatGPT%20Image%20Aug%2027,%202026,%2008_41_52%20AM.png"
+export const Leader="https://ik.imagekit.io/opzxy97kk/ThirumalaTraders/ChatGPT%20Image%20Aug%2029,%202026,%2010_30_34%20AM.png"
+export const Zoloto="https://ik.imagekit.io/opzxy97kk/ThirumalaTraders/ChatGPT%20Image%20Aug%2027,%202026,%2008_44_10%20AM.png"
+export const Sant="https://ik.imagekit.io/opzxy97kk/ThirumalaTraders/ChatGPT%20Image%20Aug%2029,%202026,%2010_44_39%20AM.png"
+export const Kartar="https://ik.imagekit.io/opzxy97kk/ThirumalaTraders/ChatGPT%20Image%20Aug%2027,%202026,%2008_45_09%20AM.png"
+export const AR="https://ik.imagekit.io/opzxy97kk/ThirumalaTraders/ChatGPT%20Image%20Aug%2029,%202026,%2010_46_27%20AM.png"
+export const VS="https://ik.imagekit.io/opzxy97kk/ThirumalaTraders/ChatGPT%20Image%20Aug%2027,%202026,%2008_48_41%20AM.png"
+export const Guru="https://ik.imagekit.io/opzxy97kk/ThirumalaTraders/ChatGPT%20Image%20Aug%2029,%202026,%2010_53_15%20AM.png"
