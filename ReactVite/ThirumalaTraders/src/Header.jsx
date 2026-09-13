@@ -1,5 +1,6 @@
 import { Logo } from "./assets/HeaderImage/HeaderImage";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const menuItems = [
   { name: "Home", href: "/" },
@@ -14,6 +15,7 @@ const Header = () => {
 
   return (
     <header className="w-full border-b border-gray-100 shadow-[0_2px_15px_rgba(0,0,0,0.04)] bg-white sticky top-0 z-50">
+
       <div className="w-[95%] md:w-[90%] mx-auto">
 
         {/* ================= OVERLAY ================= */}
@@ -31,50 +33,180 @@ const Header = () => {
 
           {/* ================= LOGO ================= */}
 
-          <a href="/">
+          <Link
+            to="/"
+            onClick={() => setMenuOpen(false)}
+          >
             <img
               src={Logo}
               alt="Thirumala Traders Logo"
               className="w-[90px] md:w-[110px]"
             />
-          </a>
+          </Link>
 
           {/* ================= DESKTOP MENU ================= */}
 
           <ul className="hidden md:flex items-center gap-8 lg:gap-10">
 
-            {menuItems.map((item) => (
-              <li key={item.name}>
-                <a
-                  href={item.href}
-                  className="
-                    relative
-                    text-[16px]
-                    lg:text-[18px]
-                    font-medium
-                    text-[#1F2937]
-                    transition-all
-                    duration-300
+            {/* HOME */}
 
-                    hover:text-[#E21B23]
+            <li>
+              <Link
+                to="/"
+                className="
+                  relative
+                  text-[16px]
+                  lg:text-[18px]
+                  font-medium
+                  text-[#1F2937]
+                  transition-all
+                  duration-300
+                  hover:text-[#E21B23]
 
-                    after:absolute
-                    after:left-0
-                    after:-bottom-2
-                    after:w-0
-                    after:h-[3px]
-                    after:bg-[#E21B23]
-                    after:transition-all
-                    after:duration-300
-                    after:content-['']
+                  after:absolute
+                  after:left-0
+                  after:-bottom-2
+                  after:w-0
+                  after:h-[3px]
+                  after:bg-[#E21B23]
+                  after:transition-all
+                  after:duration-300
+                  after:content-['']
 
-                    hover:after:w-full
-                  "
-                >
-                  {item.name}
-                </a>
-              </li>
-            ))}
+                  hover:after:w-full
+                "
+              >
+                Home
+              </Link>
+            </li>
+
+            {/* ABOUT US */}
+
+            <li>
+              <Link
+                to="/AboutUs"
+                className="
+                  relative
+                  text-[16px]
+                  lg:text-[18px]
+                  font-medium
+                  text-[#1F2937]
+                  transition-all
+                  duration-300
+                  hover:text-[#E21B23]
+
+                  after:absolute
+                  after:left-0
+                  after:-bottom-2
+                  after:w-0
+                  after:h-[3px]
+                  after:bg-[#E21B23]
+                  after:transition-all
+                  after:duration-300
+                  after:content-['']
+
+                  hover:after:w-full
+                "
+              >
+                About Us
+              </Link>
+            </li>
+
+            {/* PRODUCTS */}
+
+            <li>
+              <a
+                href="#products"
+                className="
+                  relative
+                  text-[16px]
+                  lg:text-[18px]
+                  font-medium
+                  text-[#1F2937]
+                  transition-all
+                  duration-300
+                  hover:text-[#E21B23]
+
+                  after:absolute
+                  after:left-0
+                  after:-bottom-2
+                  after:w-0
+                  after:h-[3px]
+                  after:bg-[#E21B23]
+                  after:transition-all
+                  after:duration-300
+                  after:content-['']
+
+                  hover:after:w-full
+                "
+              >
+                Products
+              </a>
+            </li>
+
+            {/* BRANDS */}
+
+            <li>
+              <a
+                href="#brands"
+                className="
+                  relative
+                  text-[16px]
+                  lg:text-[18px]
+                  font-medium
+                  text-[#1F2937]
+                  transition-all
+                  duration-300
+                  hover:text-[#E21B23]
+
+                  after:absolute
+                  after:left-0
+                  after:-bottom-2
+                  after:w-0
+                  after:h-[3px]
+                  after:bg-[#E21B23]
+                  after:transition-all
+                  after:duration-300
+                  after:content-['']
+
+                  hover:after:w-full
+                "
+              >
+                Brands
+              </a>
+            </li>
+
+            {/* CONTACT */}
+
+            <li>
+              <a
+                href="#contact"
+                className="
+                  relative
+                  text-[16px]
+                  lg:text-[18px]
+                  font-medium
+                  text-[#1F2937]
+                  transition-all
+                  duration-300
+                  hover:text-[#E21B23]
+
+                  after:absolute
+                  after:left-0
+                  after:-bottom-2
+                  after:w-0
+                  after:h-[3px]
+                  after:bg-[#E21B23]
+                  after:transition-all
+                  after:duration-300
+                  after:content-['']
+
+                  hover:after:w-full
+                "
+              >
+                Contact Us
+              </a>
+            </li>
 
             {/* ================= GET A QUOTE ================= */}
 
@@ -174,7 +306,6 @@ const Header = () => {
             transition-transform
             duration-500
             ease-in-out
-
             ${
               menuOpen
                 ? "translate-x-0"
@@ -183,12 +314,12 @@ const Header = () => {
           `}
         >
 
-          {/* ================= CLOSE BUTTON ================= */}
+          {/* ================= CLOSE HEADER ================= */}
 
           <div className="flex justify-between items-center p-5 border-b border-gray-100">
 
-            <a
-              href="/"
+            <Link
+              to="/"
               onClick={() => setMenuOpen(false)}
             >
               <img
@@ -196,7 +327,7 @@ const Header = () => {
                 alt="Thirumala Traders Logo"
                 className="w-[80px]"
               />
-            </a>
+            </Link>
 
             <button
               type="button"
@@ -225,37 +356,155 @@ const Header = () => {
 
           <div className="flex flex-col items-center gap-8 mt-12">
 
-            {menuItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                onClick={() => setMenuOpen(false)}
-                className="
-                  relative
-                  text-[20px]
-                  font-medium
-                  text-[#1F2937]
-                  transition-colors
-                  duration-300
+            {/* HOME */}
 
-                  hover:text-[#E21B23]
+            <Link
+              to="/"
+              onClick={() => setMenuOpen(false)}
+              className="
+                relative
+                text-[20px]
+                font-medium
+                text-[#1F2937]
+                transition-colors
+                duration-300
+                hover:text-[#E21B23]
 
-                  after:absolute
-                  after:left-0
-                  after:-bottom-2
-                  after:w-0
-                  after:h-[3px]
-                  after:bg-[#E21B23]
-                  after:transition-all
-                  after:duration-300
-                  after:content-['']
+                after:absolute
+                after:left-0
+                after:-bottom-2
+                after:w-0
+                after:h-[3px]
+                after:bg-[#E21B23]
+                after:transition-all
+                after:duration-300
+                after:content-['']
 
-                  hover:after:w-full
-                "
-              >
-                {item.name}
-              </a>
-            ))}
+                hover:after:w-full
+              "
+            >
+              Home
+            </Link>
+
+            {/* ABOUT US */}
+
+            <Link
+              to="/AboutUs"
+              onClick={() => setMenuOpen(false)}
+              className="
+                relative
+                text-[20px]
+                font-medium
+                text-[#1F2937]
+                transition-colors
+                duration-300
+                hover:text-[#E21B23]
+
+                after:absolute
+                after:left-0
+                after:-bottom-2
+                after:w-0
+                after:h-[3px]
+                after:bg-[#E21B23]
+                after:transition-all
+                after:duration-300
+                after:content-['']
+
+                hover:after:w-full
+              "
+            >
+              About Us
+            </Link>
+
+            {/* PRODUCTS */}
+
+            <a
+              href="#products"
+              onClick={() => setMenuOpen(false)}
+              className="
+                relative
+                text-[20px]
+                font-medium
+                text-[#1F2937]
+                transition-colors
+                duration-300
+                hover:text-[#E21B23]
+
+                after:absolute
+                after:left-0
+                after:-bottom-2
+                after:w-0
+                after:h-[3px]
+                after:bg-[#E21B23]
+                after:transition-all
+                after:duration-300
+                after:content-['']
+
+                hover:after:w-full
+              "
+            >
+              Products
+            </a>
+
+            {/* BRANDS */}
+
+            <a
+              href="#brands"
+              onClick={() => setMenuOpen(false)}
+              className="
+                relative
+                text-[20px]
+                font-medium
+                text-[#1F2937]
+                transition-colors
+                duration-300
+                hover:text-[#E21B23]
+
+                after:absolute
+                after:left-0
+                after:-bottom-2
+                after:w-0
+                after:h-[3px]
+                after:bg-[#E21B23]
+                after:transition-all
+                after:duration-300
+                after:content-['']
+
+                hover:after:w-full
+              "
+            >
+              Brands
+            </a>
+
+            {/* CONTACT */}
+
+            <a
+              href="#contact"
+              onClick={() => setMenuOpen(false)}
+              className="
+                relative
+                text-[20px]
+                font-medium
+                text-[#1F2937]
+                transition-colors
+                duration-300
+                hover:text-[#E21B23]
+
+                after:absolute
+                after:left-0
+                after:-bottom-2
+                after:w-0
+                after:h-[3px]
+                after:bg-[#E21B23]
+                after:transition-all
+                after:duration-300
+                after:content-['']
+
+                hover:after:w-full
+              "
+            >
+              Contact Us
+            </a>
 
             {/* ================= MOBILE GET QUOTE ================= */}
 
