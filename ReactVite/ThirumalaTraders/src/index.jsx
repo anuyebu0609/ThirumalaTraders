@@ -11,7 +11,11 @@ import About from "./About";
 import ContactNow from "./ContactNow";
 import Footer from "./Footer";
 
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Outlet,
+  RouterProvider,
+} from "react-router-dom";
 
 import AboutUs from "./AboutUs";
 
@@ -38,8 +42,9 @@ const Home = () => {
 
 const AppLayout = () => {
   return (
-    <div>
+    <div className="min-h-screen">
       <Heading />
+
       <Header />
 
       <Outlet />
@@ -59,13 +64,17 @@ const Router = createBrowserRouter([
     element: <AppLayout />,
 
     children: [
+      /* ================= HOME ================= */
+
       {
         index: true,
         element: <Home />,
       },
 
+      /* ================= ABOUT US ================= */
+
       {
-        path: "AboutUs",
+        path: "/AboutUs",
         element: <AboutUs />,
       },
     ],
@@ -76,7 +85,9 @@ const Router = createBrowserRouter([
    ROOT
 ========================================================= */
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(
+  document.getElementById("root")
+);
 
 root.render(
   <RouterProvider router={Router} />
