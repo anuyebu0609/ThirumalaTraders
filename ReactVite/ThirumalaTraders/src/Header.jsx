@@ -1,9 +1,9 @@
-import {Logo} from "./assets/HeaderImage/HeaderImage"
+import { Logo } from "./assets/HeaderImage/HeaderImage";
 import { useState } from "react";
 
 const menuItems = [
   { name: "Home", href: "/" },
-  { name: "About Us", href: "AboutUs" },
+  { name: "About Us", href: "/AboutUs" },
   { name: "Products", href: "#products" },
   { name: "Brands", href: "#brands" },
   { name: "Contact Us", href: "#contact" },
@@ -15,6 +15,7 @@ const Header = () => {
   return (
     <header className="w-full border-b border-gray-100 shadow-[0_2px_15px_rgba(0,0,0,0.04)] bg-white sticky top-0 z-50">
       <div className="w-[95%] md:w-[90%] mx-auto">
+
         {/* ================= OVERLAY ================= */}
 
         {menuOpen && (
@@ -27,9 +28,10 @@ const Header = () => {
         {/* ================= HEADER ================= */}
 
         <div className="flex items-center justify-between py-3">
+
           {/* ================= LOGO ================= */}
 
-          <a href="#home">
+          <a href="/">
             <img
               src={Logo}
               alt="Thirumala Traders Logo"
@@ -40,6 +42,7 @@ const Header = () => {
           {/* ================= DESKTOP MENU ================= */}
 
           <ul className="hidden md:flex items-center gap-8 lg:gap-10">
+
             {menuItems.map((item) => (
               <li key={item.name}>
                 <a
@@ -117,6 +120,7 @@ const Header = () => {
                 </span>
               </a>
             </li>
+
           </ul>
 
           {/* ================= MOBILE MENU BUTTON ================= */}
@@ -138,13 +142,20 @@ const Header = () => {
               strokeLinecap="round"
               strokeLinejoin="round"
             >
-              <rect width="18" height="18" x="3" y="3" rx="2" />
+              <rect
+                width="18"
+                height="18"
+                x="3"
+                y="3"
+                rx="2"
+              />
 
               <path d="M7 8h10" />
               <path d="M7 12h10" />
               <path d="M7 16h10" />
             </svg>
           </button>
+
         </div>
 
         {/* ================= MOBILE DRAWER ================= */}
@@ -171,14 +182,21 @@ const Header = () => {
             }
           `}
         >
+
           {/* ================= CLOSE BUTTON ================= */}
 
           <div className="flex justify-between items-center p-5 border-b border-gray-100">
-            <img
-              src={Logo}
-              alt="Thirumala Traders Logo"
-              className="w-[80px]"
-            />
+
+            <a
+              href="/"
+              onClick={() => setMenuOpen(false)}
+            >
+              <img
+                src={Logo}
+                alt="Thirumala Traders Logo"
+                className="w-[80px]"
+              />
+            </a>
 
             <button
               type="button"
@@ -200,11 +218,13 @@ const Header = () => {
                 <path d="M6 6l12 12" />
               </svg>
             </button>
+
           </div>
 
           {/* ================= MOBILE LINKS ================= */}
 
           <div className="flex flex-col items-center gap-8 mt-12">
+
             {menuItems.map((item) => (
               <a
                 key={item.name}
@@ -255,6 +275,7 @@ const Header = () => {
                 font-semibold
               "
             >
+
               <span
                 className="
                   absolute
@@ -279,9 +300,13 @@ const Header = () => {
               >
                 Get a Quote
               </span>
+
             </a>
+
           </div>
+
         </div>
+
       </div>
     </header>
   );
