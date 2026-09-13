@@ -1,31 +1,83 @@
-import React from "react"
-import ReactDOM from "react-dom/client"
-import "./index.css"
-import Heading from "./Heading"
-import Header from "./Header"
-import HeroSection from "./HeroSection"
-import ProductSection from "./ProductSection"
-import OurBrands from "./OurBrands"
-import WhyChoose from "./WhyChoose"
-import About from "./About"
-import ContactNow from "./ContactNow"
-import Footer from "./Footer"
+import ReactDOM from "react-dom/client";
+import "./index.css";
 
+import Heading from "./Heading";
+import Header from "./Header";
+import HeroSection from "./HeroSection";
+import ProductSection from "./ProductSection";
+import OurBrands from "./OurBrands";
+import WhyChoose from "./WhyChoose";
+import About from "./About";
+import ContactNow from "./ContactNow";
+import Footer from "./Footer";
 
-const Applayout=()=>{
-    return(
-        <div>
-            <Heading/>
-           <Header/>
-           <HeroSection/>
-           <ProductSection/>
-           <OurBrands/>
-           <WhyChoose/>
-           <About/>
-           <ContactNow/>
-           <Footer/>
-        </div>
-    )
-}
-const root=ReactDOM.createRoot(document.getElementById("root"))
-root.render(<Applayout/>)
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+
+import AboutUs from "./AboutUs";
+
+/* =========================================================
+   HOME PAGE
+========================================================= */
+
+const Home = () => {
+  return (
+    <div>
+      <HeroSection />
+      <ProductSection />
+      <OurBrands />
+      <WhyChoose />
+      <About />
+      <ContactNow />
+    </div>
+  );
+};
+
+/* =========================================================
+   APP LAYOUT
+========================================================= */
+
+const AppLayout = () => {
+  return (
+    <div>
+      <Heading />
+      <Header />
+
+      <Outlet />
+
+      <Footer />
+    </div>
+  );
+};
+
+/* =========================================================
+   ROUTER
+========================================================= */
+
+const Router = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+
+      {
+        path: "AboutUs",
+        element: <AboutUs />,
+      },
+    ],
+  },
+]);
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(
+  <RouterProvider router={Router} />
+);

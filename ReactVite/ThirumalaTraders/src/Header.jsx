@@ -2,8 +2,8 @@ import {Logo} from "./assets/HeaderImage/HeaderImage"
 import { useState } from "react";
 
 const menuItems = [
-  { name: "Home", href: "#home" },
-  { name: "About Us", href: "#about" },
+  { name: "Home", href: "/" },
+  { name: "About Us", href: "AboutUs" },
   { name: "Products", href: "#products" },
   { name: "Brands", href: "#brands" },
   { name: "Contact Us", href: "#contact" },
