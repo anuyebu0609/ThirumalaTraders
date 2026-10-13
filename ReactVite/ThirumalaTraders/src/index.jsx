@@ -18,6 +18,8 @@ import {
 } from "react-router-dom";
 
 import AboutUs from "./AboutUs";
+import ContactUs from "./ContactUs";
+import Certificates from "./Certificates";
 
 /* =========================================================
    HOME PAGE
@@ -77,6 +79,21 @@ const Router = createBrowserRouter([
         path: "AboutUs",
         element: <AboutUs />,
       },
+
+      /* ================= CONTACT US ================= */
+
+      {
+        path:"ContactUs",
+        element:<ContactUs/>
+      },
+
+
+      /* ================= CERTIFICATES ================= */
+
+      {
+        path:"Certificates",
+        element:<Certificates/>
+      }
     ],
   },
 ]);

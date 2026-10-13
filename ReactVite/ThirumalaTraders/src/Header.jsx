@@ -6,8 +6,8 @@ const menuItems = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/AboutUs" },
   { name: "Products", href: "#products" },
-  { name: "Brands", href: "#brands" },
-  { name: "Contact Us", href: "#contact" },
+  { name: "Certificates", href: "/Certificates" },
+  { name: "Contact Us", href: "/CountactUs" },
 ];
 
 const Header = () => {
@@ -144,11 +144,11 @@ const Header = () => {
               </a>
             </li>
 
-            {/* BRANDS */}
+            {/* CERTIFICATES */}
 
             <li>
               <a
-                href="#brands"
+                href="/Certificates"
                 className="
                   relative
                   text-[16px]
@@ -172,7 +172,7 @@ const Header = () => {
                   hover:after:w-full
                 "
               >
-                Brands
+                Certificates
               </a>
             </li>
 
@@ -180,7 +180,7 @@ const Header = () => {
 
             <li>
               <a
-                href="#contact"
+                href="/ContactUs"
                 className="
                   relative
                   text-[16px]

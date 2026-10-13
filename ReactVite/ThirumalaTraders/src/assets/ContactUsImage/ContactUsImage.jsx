@@ -1,0 +1,1 @@
+export const ContactUsHero="https://ik.imagekit.io/opzxy97kk/ThirumalaTraders/Industrial%20Valves%20Contact%20Us%20Banner.png"

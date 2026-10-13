@@ -1,4 +1,5 @@
 import AboutUsHeroSection from "./AboutUsHeroSection"
+import AboutUsProcess from "./AboutUsProcess"
 import OurDelivery from "./OurDelivery"
 import OurStory from "./OurStory"
 import ProductVideos from "./ProductVideos"
@@ -12,6 +13,7 @@ const AboutUs=()=>{
             <OurDelivery/>
             <ProductVideos/>
             <WhyChooseUs/>
+            <AboutUsProcess/>
         </div>
     )
 }
