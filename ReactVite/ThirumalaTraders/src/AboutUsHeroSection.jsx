@@ -34,35 +34,39 @@ const HeroSection = () => {
 
         {/* Right Side - Content */}
         <div className="flex flex-col justify-center md:order-2">
-          <p className="mb-4 text-sm font-bold uppercase tracking-[2px] text-[#E21B23]">
-            Trusted Industrial Products Supplier
+
+          {/* Experience Label */}
+          <p className="mb-4 inline-flex w-fit items-center gap-2 rounded-full bg-red-50 px-4 py-2 text-xs font-bold uppercase tracking-wider text-[#E21B23] sm:text-sm">
+            <span className="h-2 w-2 rounded-full bg-[#E21B23]" />
+            5+ Years of Industry Experience
           </p>
 
-          <h1 className="text-3xl font-bold leading-tight text-[#163653] sm:text-4xl lg:text-[46px]">
-            Leading The Way In Quality{" "}
+          {/* Main Heading */}
+          <h1 className="text-3xl font-extrabold leading-tight text-[#163653] sm:text-4xl lg:text-[44px]">
+            Your Trusted Partner for{" "}
             <span className="text-[#E21B23]">
-              And Innovation
+              Industrial Pipes & Fittings
             </span>
           </h1>
 
+          {/* Description */}
           <p className="mt-6 text-base leading-7 text-gray-700">
-            Thirumala Traders is a trusted distributor of MS, CS, SS
-            pipes, pipe fittings, and industrial valves. We are committed
-            to providing quality products, competitive pricing, and
-            dependable customer service to meet the needs of diverse
-            industries.
+            Thirumala Traders supplies MS, CS, SS pipes, pipe fittings,
+            and industrial valves to meet a wide range of industrial
+            requirements. We focus on product quality, competitive
+            pricing, and dependable customer service.
           </p>
 
           <p className="mt-4 text-base leading-7 text-gray-700">
-            We value long-term business relationships and work to
-            understand every client's requirements, delivering reliable
-            product support from enquiry to supply.
+            With over 5 years of industry experience, we are committed
+            to building lasting business relationships and helping
+            customers find the right products for their projects.
           </p>
 
           {/* Clients */}
           <div className="mt-6 border-l-4 border-[#E21B23] pl-4">
             <h2 className="text-lg font-bold text-[#163653]">
-              Our Valued Clients
+              Industries & Clients We Serve
             </h2>
 
             <p className="mt-2 text-sm leading-6 text-gray-700 sm:text-base">
@@ -90,8 +94,8 @@ const HeroSection = () => {
               View Certificates
             </a>
           </div>
-        </div>
 
+        </div>
       </div>
     </section>
   );
