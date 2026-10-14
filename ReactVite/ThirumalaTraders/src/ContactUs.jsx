@@ -1,6 +1,6 @@
 import ContactUsForm from "./ContactUsForm/ContactUsForm"
 import ContactUsHeroSection from "./ContactUsHeroSection"
-import ContactUsMap from "./ContactUsMAp"
+import ContactUsMap from "./ContactUsMap"
 
 const ContactUs=()=>{
     return(
