@@ -7,7 +7,7 @@ const menuItems = [
   { name: "About Us", href: "/AboutUs" },
   { name: "Products", href: "#products" },
   { name: "Certificates", href: "/Certificates" },
-  { name: "Contact Us", href: "/CountactUs" },
+  { name: "Contact Us", href: "/ContactUs" },
 ];
 
 const Header = () => {
