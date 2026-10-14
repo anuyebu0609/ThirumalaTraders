@@ -20,6 +20,7 @@ import {
 import AboutUs from "./AboutUs";
 import ContactUs from "./ContactUs";
 import Certificates from "./Certificates";
+import GetQuotePage from "./GetQuote";
 
 /* =========================================================
    HOME PAGE
@@ -93,7 +94,12 @@ const Router = createBrowserRouter([
       {
         path:"Certificates",
         element:<Certificates/>
-      }
+      },
+
+      {
+  path: "/GetQuote",
+  element: <GetQuotePage />,
+}
     ],
   },
 ]);

@@ -1,42 +1,64 @@
+
 import { Logo } from "./assets/HeaderImage/HeaderImage";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const menuItems = [
-  { name: "Home", href: "/" },
-  { name: "About Us", href: "/AboutUs" },
-  { name: "Products", href: "#products" },
-  { name: "Certificates", href: "/Certificates" },
-  { name: "Contact Us", href: "/ContactUs" },
-];
-
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const linkClass = `
+    relative text-[16px] lg:text-[18px] font-medium
+    text-[#1F2937] transition-all duration-300
+    hover:text-[#E21B23]
+    after:absolute after:left-0 after:-bottom-2
+    after:w-0 after:h-[3px] after:bg-[#E21B23]
+    after:transition-all after:duration-300
+    after:content-[''] hover:after:w-full
+  `;
+
+  const mobileLinkClass = `
+    relative text-[20px] font-medium text-[#1F2937]
+    transition-colors duration-300 hover:text-[#E21B23]
+    after:absolute after:left-0 after:-bottom-2
+    after:w-0 after:h-[3px] after:bg-[#E21B23]
+    after:transition-all after:duration-300
+    after:content-[''] hover:after:w-full
+  `;
+
+  const quoteButtonClass = `
+    group relative inline-flex items-center justify-center
+    overflow-hidden rounded-full border-2 border-[#E21B23]
+    px-6 py-2 font-semibold transition-all duration-300
+  `;
+
+  const QuoteButton = ({ mobile = false, onClick }) => (
+    <Link
+      to="/GetQuote"
+      onClick={onClick}
+      className={`${quoteButtonClass} ${mobile ? "px-8 py-3" : ""}`}
+    >
+      <span className="absolute inset-0 bg-[#E21B23] transition-transform duration-500 group-hover:scale-y-0" />
+      <span className="relative z-10 text-white transition-colors duration-500 group-hover:text-[#E21B23]">
+        Get a Quote
+      </span>
+    </Link>
+  );
+
   return (
-    <header className="w-full border-b border-gray-100 shadow-[0_2px_15px_rgba(0,0,0,0.04)] bg-white sticky top-0 z-50">
-
-      <div className="w-[95%] md:w-[90%] mx-auto">
-
-        {/* ================= OVERLAY ================= */}
-
+    <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white shadow-[0_2px_15px_rgba(0,0,0,0.04)]">
+      <div className="mx-auto w-[95%] md:w-[90%]">
+        {/* Overlay */}
         {menuOpen && (
           <div
-            className="md:hidden fixed inset-0 bg-black/30 z-40"
+            className="fixed inset-0 z-40 bg-black/30 md:hidden"
             onClick={() => setMenuOpen(false)}
           />
         )}
 
-        {/* ================= HEADER ================= */}
-
+        {/* Header */}
         <div className="flex items-center justify-between py-3">
-
-          {/* ================= LOGO ================= */}
-
-          <Link
-            to="/"
-            onClick={() => setMenuOpen(false)}
-          >
+          {/* Logo */}
+          <Link to="/" onClick={() => setMenuOpen(false)}>
             <img
               src={Logo}
               alt="Thirumala Traders Logo"
@@ -44,224 +66,51 @@ const Header = () => {
             />
           </Link>
 
-          {/* ================= DESKTOP MENU ================= */}
-
-          <ul className="hidden md:flex items-center gap-8 lg:gap-10">
-
-            {/* HOME */}
-
+          {/* Desktop menu */}
+          <ul className="hidden items-center gap-8 md:flex lg:gap-10">
             <li>
-              <Link
-                to="/"
-                className="
-                  relative
-                  text-[16px]
-                  lg:text-[18px]
-                  font-medium
-                  text-[#1F2937]
-                  transition-all
-                  duration-300
-                  hover:text-[#E21B23]
-
-                  after:absolute
-                  after:left-0
-                  after:-bottom-2
-                  after:w-0
-                  after:h-[3px]
-                  after:bg-[#E21B23]
-                  after:transition-all
-                  after:duration-300
-                  after:content-['']
-
-                  hover:after:w-full
-                "
-              >
+              <Link to="/" className={linkClass}>
                 Home
               </Link>
             </li>
 
-            {/* ABOUT US */}
-
             <li>
-              <Link
-                to="/AboutUs"
-                className="
-                  relative
-                  text-[16px]
-                  lg:text-[18px]
-                  font-medium
-                  text-[#1F2937]
-                  transition-all
-                  duration-300
-                  hover:text-[#E21B23]
-
-                  after:absolute
-                  after:left-0
-                  after:-bottom-2
-                  after:w-0
-                  after:h-[3px]
-                  after:bg-[#E21B23]
-                  after:transition-all
-                  after:duration-300
-                  after:content-['']
-
-                  hover:after:w-full
-                "
-              >
+              <Link to="/AboutUs" className={linkClass}>
                 About Us
               </Link>
             </li>
 
-            {/* PRODUCTS */}
-
             <li>
-              <a
-                href="#products"
-                className="
-                  relative
-                  text-[16px]
-                  lg:text-[18px]
-                  font-medium
-                  text-[#1F2937]
-                  transition-all
-                  duration-300
-                  hover:text-[#E21B23]
-
-                  after:absolute
-                  after:left-0
-                  after:-bottom-2
-                  after:w-0
-                  after:h-[3px]
-                  after:bg-[#E21B23]
-                  after:transition-all
-                  after:duration-300
-                  after:content-['']
-
-                  hover:after:w-full
-                "
-              >
+              <a href="/#products" className={linkClass}>
                 Products
               </a>
             </li>
 
-            {/* CERTIFICATES */}
-
             <li>
-              <a
-                href="/Certificates"
-                className="
-                  relative
-                  text-[16px]
-                  lg:text-[18px]
-                  font-medium
-                  text-[#1F2937]
-                  transition-all
-                  duration-300
-                  hover:text-[#E21B23]
-
-                  after:absolute
-                  after:left-0
-                  after:-bottom-2
-                  after:w-0
-                  after:h-[3px]
-                  after:bg-[#E21B23]
-                  after:transition-all
-                  after:duration-300
-                  after:content-['']
-
-                  hover:after:w-full
-                "
-              >
+              <Link to="/Certificates" className={linkClass}>
                 Certificates
-              </a>
+              </Link>
             </li>
 
-            {/* CONTACT */}
-
             <li>
-              <a
-                href="/ContactUs"
-                className="
-                  relative
-                  text-[16px]
-                  lg:text-[18px]
-                  font-medium
-                  text-[#1F2937]
-                  transition-all
-                  duration-300
-                  hover:text-[#E21B23]
-
-                  after:absolute
-                  after:left-0
-                  after:-bottom-2
-                  after:w-0
-                  after:h-[3px]
-                  after:bg-[#E21B23]
-                  after:transition-all
-                  after:duration-300
-                  after:content-['']
-
-                  hover:after:w-full
-                "
-              >
+              <Link to="/ContactUs" className={linkClass}>
                 Contact Us
-              </a>
+              </Link>
             </li>
 
-            {/* ================= GET A QUOTE ================= */}
-
+            {/* Desktop Get a Quote */}
             <li>
-              <a
-                href="#quote"
-                className="
-                  group
-                  relative
-                  overflow-hidden
-                  inline-block
-                  px-6
-                  py-2
-                  rounded-full
-                  border-2
-                  border-[#E21B23]
-                  font-semibold
-                "
-              >
-                <span
-                  className="
-                    absolute
-                    inset-0
-                    bg-[#E21B23]
-                    origin-bottom
-                    transition-transform
-                    duration-500
-                    group-hover:scale-y-0
-                  "
-                />
-
-                <span
-                  className="
-                    relative
-                    z-10
-                    text-white
-                    transition-colors
-                    duration-500
-                    group-hover:text-[#E21B23]
-                  "
-                >
-                  Get a Quote
-                </span>
-              </a>
+              <QuoteButton />
             </li>
-
           </ul>
 
-          {/* ================= MOBILE MENU BUTTON ================= */}
-
+          {/* Mobile menu button */}
           <button
             type="button"
             className="md:hidden"
             onClick={() => setMenuOpen(true)}
-            aria-label="Open Menu"
+            aria-label="Open menu"
+            aria-expanded={menuOpen}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -274,54 +123,27 @@ const Header = () => {
               strokeLinecap="round"
               strokeLinejoin="round"
             >
-              <rect
-                width="18"
-                height="18"
-                x="3"
-                y="3"
-                rx="2"
-              />
-
+              <rect width="18" height="18" x="3" y="3" rx="2" />
               <path d="M7 8h10" />
               <path d="M7 12h10" />
               <path d="M7 16h10" />
             </svg>
           </button>
-
         </div>
 
-        {/* ================= MOBILE DRAWER ================= */}
-
+        {/* Mobile drawer */}
         <div
           className={`
-            md:hidden
-            fixed
-            top-0
-            right-0
-            z-50
-            w-[280px]
-            h-screen
-            bg-white
-            shadow-[-5px_0_20px_rgba(0,0,0,0.08)]
-            transition-transform
-            duration-500
-            ease-in-out
-            ${
-              menuOpen
-                ? "translate-x-0"
-                : "translate-x-full"
-            }
+            fixed right-0 top-0 z-50 h-screen w-[280px]
+            bg-white shadow-[-5px_0_20px_rgba(0,0,0,0.08)]
+            transition-transform duration-500 ease-in-out md:hidden
+            ${menuOpen ? "translate-x-0" : "translate-x-full"}
           `}
+          aria-hidden={!menuOpen}
         >
-
-          {/* ================= CLOSE HEADER ================= */}
-
-          <div className="flex justify-between items-center p-5 border-b border-gray-100">
-
-            <Link
-              to="/"
-              onClick={() => setMenuOpen(false)}
-            >
+          {/* Drawer header */}
+          <div className="flex items-center justify-between border-b border-gray-100 p-5">
+            <Link to="/" onClick={() => setMenuOpen(false)}>
               <img
                 src={Logo}
                 alt="Thirumala Traders Logo"
@@ -332,7 +154,7 @@ const Header = () => {
             <button
               type="button"
               onClick={() => setMenuOpen(false)}
-              aria-label="Close Menu"
+              aria-label="Close menu"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -349,213 +171,57 @@ const Header = () => {
                 <path d="M6 6l12 12" />
               </svg>
             </button>
-
           </div>
 
-          {/* ================= MOBILE LINKS ================= */}
-
-          <div className="flex flex-col items-center gap-8 mt-12">
-
-            {/* HOME */}
-
+          {/* Mobile links */}
+          <nav className="mt-12 flex flex-col items-center gap-8">
             <Link
               to="/"
               onClick={() => setMenuOpen(false)}
-              className="
-                relative
-                text-[20px]
-                font-medium
-                text-[#1F2937]
-                transition-colors
-                duration-300
-                hover:text-[#E21B23]
-
-                after:absolute
-                after:left-0
-                after:-bottom-2
-                after:w-0
-                after:h-[3px]
-                after:bg-[#E21B23]
-                after:transition-all
-                after:duration-300
-                after:content-['']
-
-                hover:after:w-full
-              "
+              className={mobileLinkClass}
             >
               Home
             </Link>
 
-            {/* ABOUT US */}
-
             <Link
               to="/AboutUs"
               onClick={() => setMenuOpen(false)}
-              className="
-                relative
-                text-[20px]
-                font-medium
-                text-[#1F2937]
-                transition-colors
-                duration-300
-                hover:text-[#E21B23]
-
-                after:absolute
-                after:left-0
-                after:-bottom-2
-                after:w-0
-                after:h-[3px]
-                after:bg-[#E21B23]
-                after:transition-all
-                after:duration-300
-                after:content-['']
-
-                hover:after:w-full
-              "
+              className={mobileLinkClass}
             >
               About Us
             </Link>
 
-            {/* PRODUCTS */}
-
-            <a
-              href="#products"
+            <Link
+              to="/#products"
               onClick={() => setMenuOpen(false)}
-              className="
-                relative
-                text-[20px]
-                font-medium
-                text-[#1F2937]
-                transition-colors
-                duration-300
-                hover:text-[#E21B23]
-
-                after:absolute
-                after:left-0
-                after:-bottom-2
-                after:w-0
-                after:h-[3px]
-                after:bg-[#E21B23]
-                after:transition-all
-                after:duration-300
-                after:content-['']
-
-                hover:after:w-full
-              "
+              className={mobileLinkClass}
             >
               Products
-            </a>
+            </Link>
 
-            {/* BRANDS */}
-
-            <a
-              href="#brands"
+            <Link
+              to="/Certificates"
               onClick={() => setMenuOpen(false)}
-              className="
-                relative
-                text-[20px]
-                font-medium
-                text-[#1F2937]
-                transition-colors
-                duration-300
-                hover:text-[#E21B23]
-
-                after:absolute
-                after:left-0
-                after:-bottom-2
-                after:w-0
-                after:h-[3px]
-                after:bg-[#E21B23]
-                after:transition-all
-                after:duration-300
-                after:content-['']
-
-                hover:after:w-full
-              "
+              className={mobileLinkClass}
             >
-              Brands
-            </a>
+              Certificates
+            </Link>
 
-            {/* CONTACT */}
-
-            <a
-              href="#contact"
+            <Link
+              to="/ContactUs"
               onClick={() => setMenuOpen(false)}
-              className="
-                relative
-                text-[20px]
-                font-medium
-                text-[#1F2937]
-                transition-colors
-                duration-300
-                hover:text-[#E21B23]
-
-                after:absolute
-                after:left-0
-                after:-bottom-2
-                after:w-0
-                after:h-[3px]
-                after:bg-[#E21B23]
-                after:transition-all
-                after:duration-300
-                after:content-['']
-
-                hover:after:w-full
-              "
+              className={mobileLinkClass}
             >
               Contact Us
-            </a>
+            </Link>
 
-            {/* ================= MOBILE GET QUOTE ================= */}
-
-            <a
-              href="#quote"
+            {/* Mobile Get a Quote */}
+            <QuoteButton
+              mobile
               onClick={() => setMenuOpen(false)}
-              className="
-                group
-                relative
-                overflow-hidden
-                inline-block
-                px-8
-                py-3
-                rounded-full
-                border-2
-                border-[#E21B23]
-                font-semibold
-              "
-            >
-
-              <span
-                className="
-                  absolute
-                  inset-0
-                  bg-[#E21B23]
-                  origin-bottom
-                  transition-transform
-                  duration-500
-                  group-hover:scale-y-0
-                "
-              />
-
-              <span
-                className="
-                  relative
-                  z-10
-                  text-white
-                  transition-colors
-                  duration-500
-                  group-hover:text-[#E21B23]
-                "
-              >
-                Get a Quote
-              </span>
-
-            </a>
-
-          </div>
-
+            />
+          </nav>
         </div>
-
       </div>
     </header>
   );
