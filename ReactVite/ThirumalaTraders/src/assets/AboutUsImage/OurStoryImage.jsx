@@ -1,1 +1,1 @@
-export const OurStoryImage="https://ik.imagekit.io/opzxy97kk/ThirumalaTraders/ChatGPT%20Image%20Sep%2010,%202026,%2007_42_09%20PM.png"
+export const OurStoryImage="https://ik.imagekit.io/opzxy97kk/Layered%20Office%20Desk%20with%20Plumbing%20Hardware.png"
