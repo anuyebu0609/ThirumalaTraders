@@ -1,4 +1,4 @@
-```jsx
+
 import React from "react";
 import {
   Headset,
@@ -121,4 +121,3 @@ const ContactUsHeroSection = () => {
 };
 
 export default ContactUsHeroSection;
-```
